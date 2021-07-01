@@ -1,0 +1,3 @@
+[submodule "alertmanager"]
+	path = alertmanager
+	url = git@github.com:prometheus/alertmanager.git
