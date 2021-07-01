@@ -1,0 +1,45 @@
+name:                alertmanager-client
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/SupercedeTech/alertmanager-client#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Supercede
+maintainer:          isaac@supercede.com
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Network.Alertmanager.Client.Class
+                     , Network.Alertmanager.Client.Query
+                     , Network.Alertmanager.Client.Trans
+
+                     , Network.Alertmanager.Client.DeleteSilence
+                     , Network.Alertmanager.Client.GetSilence
+                     , Network.Alertmanager.Client.GetSilences
+                     , Network.Alertmanager.Client.PostSilences
+
+                     , Network.Alertmanager.Client.GetAlertGroups
+
+                     , Network.Alertmanager.Client.GetAlerts
+                     , Network.Alertmanager.Client.PostAlerts
+
+                     , Network.Alertmanager.Client.GetReceivers
+
+                     , Network.Alertmanager.Client.GetStatus
+  other-modules:       Network.Alertmanager.Client.Query.Internal
+  build-depends:       base >= 4.7 && < 5
+                     , alertmanager-openapi >= 0.0.1 && < 0.0.2
+                     , http-client >= 0.5 && < 0.6
+                     , lens >= 4 && < 5
+                     , text >= 1 && < 2
+                     , transformers >= 0.5 && < 0.6
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/ivanbakel/alertmanager-client
