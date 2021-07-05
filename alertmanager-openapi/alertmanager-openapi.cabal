@@ -1,3 +1,4 @@
+cabal-version:  2.2
 name:           alertmanager-openapi
 version:        0.0.1.0
 synopsis:       Auto-generated alertmanager-openapi API Client
@@ -16,7 +17,6 @@ copyright:      2021 - Supercede
 license:        BSD-3-Clause
 license-file:   LICENSE
 build-type:     Simple
-cabal-version:  >= 1.10
 
 extra-source-files:
     README.md

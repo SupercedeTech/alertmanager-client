@@ -1,16 +1,16 @@
+cabal-version:       2.2
 name:                alertmanager-client
 version:             0.1.0.0
 -- synopsis:
 -- description:
 homepage:            https://github.com/SupercedeTech/alertmanager-client#readme
-license:             BSD3
+license:             BSD-3-Clause
 license-file:        LICENSE
 author:              Supercede
 maintainer:          isaac@supercede.com
 category:            Web
 build-type:          Simple
 extra-source-files:  README.md
-cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
