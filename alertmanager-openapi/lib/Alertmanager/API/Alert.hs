@@ -109,12 +109,10 @@ instance Produces GetAlerts MimeJSON
 -- 
 -- Create new Alerts
 -- 
--- Note: Has 'Produces' instances, but no response schema
--- 
 postAlerts 
   :: (Consumes PostAlerts MimeJSON, MimeRender MimeJSON Alerts)
   => Alerts -- ^ "alerts" -  The alerts to create
-  -> AlertmanagerRequest PostAlerts MimeJSON res MimeJSON
+  -> AlertmanagerRequest PostAlerts MimeJSON NoContent MimeNoContent
 postAlerts alerts =
   _mkRequest "POST" ["/alerts"]
     `setBodyParam` alerts
@@ -127,6 +125,5 @@ instance HasBodyParam PostAlerts Alerts
 -- | @application/json@
 instance Consumes PostAlerts MimeJSON
 
--- | @application/json@
-instance Produces PostAlerts MimeJSON
+instance Produces PostAlerts MimeNoContent
 

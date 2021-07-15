@@ -63,17 +63,14 @@ import qualified Prelude as P
 -- 
 -- Delete a silence by its ID
 -- 
--- Note: Has 'Produces' instances, but no response schema
--- 
 deleteSilence 
   :: SilenceId -- ^ "silenceId" -  ID of the silence to get
-  -> AlertmanagerRequest DeleteSilence MimeNoContent res MimeJSON
+  -> AlertmanagerRequest DeleteSilence MimeNoContent NoContent MimeNoContent
 deleteSilence (SilenceId silenceId) =
   _mkRequest "DELETE" ["/silence/",toPath silenceId]
 
 data DeleteSilence  
--- | @application/json@
-instance Produces DeleteSilence MimeJSON
+instance Produces DeleteSilence MimeNoContent
 
 
 -- *** getSilence
