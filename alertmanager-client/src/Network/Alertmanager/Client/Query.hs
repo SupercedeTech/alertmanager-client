@@ -31,7 +31,8 @@ send req = do
   clientConfig <- getConfig
 
   result <- withAlertmanagerRequest
-    (liftIO . OA.dispatchMime connectionManager clientConfig)
+    (\req respTrans ->
+        fmap respTrans <$> liftIO (OA.dispatchMime connectionManager clientConfig req))
     (toAlertmanagerRequest req)
 
   case OA.mimeResult result of

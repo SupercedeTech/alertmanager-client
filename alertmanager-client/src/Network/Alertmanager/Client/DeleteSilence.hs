@@ -31,6 +31,6 @@ instance Req DeleteSilence where
   type Resp DeleteSilence = ()
 
   toAlertmanagerRequest DeleteSilence{..} =
-    IgnoringMimeInfo $ OA.deleteSilence _silenceId
+    IgnoringMimeInfoWithReturnType (OA.deleteSilence _silenceId) ignoreNoContent
 
 $(makeLenses ''DeleteSilence)

@@ -6,6 +6,7 @@ module Network.Alertmanager.Client.Query.Internal
   ( Req(..)
 
   , AlertmanagerRequest(..)
+  , ignoreNoContent
   , withAlertmanagerRequest
 
   , applyOptionalParams
@@ -31,15 +32,26 @@ data AlertmanagerRequest resp where
     :: (OA.Produces req accept, OA.MimeUnrender accept res, OA.MimeType contentType)
     => OA.AlertmanagerRequest req contentType res accept
     -> AlertmanagerRequest res
+  IgnoringMimeInfoWithReturnType
+    :: (OA.Produces req accept, OA.MimeUnrender accept mimeRes, OA.MimeType contentType)
+    => OA.AlertmanagerRequest req contentType mimeRes accept
+    -> (mimeRes -> res)
+    -> AlertmanagerRequest res
 
 withAlertmanagerRequest
-  :: (forall req accept contentType.
-      (OA.Produces req accept, OA.MimeUnrender accept resp, OA.MimeType contentType)
-      => OA.AlertmanagerRequest req contentType resp accept
+  :: (forall req accept contentType mimeRes.
+      (OA.Produces req accept, OA.MimeUnrender accept mimeRes, OA.MimeType contentType)
+      => OA.AlertmanagerRequest req contentType mimeRes accept
+      -> (mimeRes -> resp)
       -> result)
   -> AlertmanagerRequest resp
   -> result
-withAlertmanagerRequest f (IgnoringMimeInfo inner) = f inner
+withAlertmanagerRequest f req = case req of
+  IgnoringMimeInfo inner -> f inner id
+  IgnoringMimeInfoWithReturnType inner respTrans -> f inner respTrans
+
+ignoreNoContent :: OA.NoContent -> ()
+ignoreNoContent OA.NoContent = ()
 
 applyOptionalParams
   :: (OA.HasOptionalParam req param, Foldable f)

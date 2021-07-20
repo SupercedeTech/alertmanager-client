@@ -31,6 +31,6 @@ instance Req PostAlerts where
   type Resp PostAlerts = ()
 
   toAlertmanagerRequest PostAlerts{..} =
-    IgnoringMimeInfo $ OA.postAlerts _alerts
+    IgnoringMimeInfoWithReturnType (OA.postAlerts _alerts) ignoreNoContent
 
 $(makeLenses ''PostAlerts)
