@@ -69,7 +69,6 @@ library
       Network.Alertmanager.OpenAPI.Logging
       Network.Alertmanager.OpenAPI.MimeTypes
       Network.Alertmanager.OpenAPI.Model
-      Network.Alertmanager.OpenAPI.ModelLens
   default-language: Haskell2010
 
   if flag(UseKatip)

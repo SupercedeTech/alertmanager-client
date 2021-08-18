@@ -16,7 +16,6 @@ lib/Network/Alertmanager/OpenAPI/LoggingKatip.hs
 lib/Network/Alertmanager/OpenAPI/LoggingMonadLogger.hs
 lib/Network/Alertmanager/OpenAPI/MimeTypes.hs
 lib/Network/Alertmanager/OpenAPI/Model.hs
-lib/Network/Alertmanager/OpenAPI/ModelLens.hs
 openapi.yaml
 stack.yaml
 tests/ApproxEq.hs

@@ -69,7 +69,7 @@ These options allow some customization of the code generation process.
 | dateTimeParseFormat             | overrides the format string used to parse a datetime                                                                          |          |              |
 | generateEnums                   | Generate specific datatypes for OpenAPI enums                                                                                 | true     | true                   |
 | generateFormUrlEncodedInstances | Generate FromForm/ToForm instances for models used by x-www-form-urlencoded operations (model fields must be primitive types) | true     | true |
-| generateLenses                  | Generate Lens optics for Models                                                                                               | true     | true                  |
+| generateLenses                  | Generate Lens optics for Models                                                                                               | true     | false                  |
 | generateModelConstructors       | Generate smart constructors (only supply required fields) for models                                                          | true     | true       |
 | inlineMimeTypes                 | Inline (hardcode) the content-type and accept parameters on operations, when there is only 1 option                           | true     | true                 |
 | modelDeriving                   | Additional classes to include in the deriving() clause of Models                                                              |          |                    |

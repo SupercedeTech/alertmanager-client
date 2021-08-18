@@ -3,6 +3,7 @@ PROPERTIES = \
 	cabalPackage=alertmanager-openapi \
 	cabalVersion=0.0.1.0 \
 	configType=AlertmanagerClientConfig \
+	generateLenses=false \
 	requestType=AlertmanagerRequest \
 	useKatip=false
 

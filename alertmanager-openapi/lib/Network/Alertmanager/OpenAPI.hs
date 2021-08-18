@@ -19,7 +19,6 @@ module Network.Alertmanager.OpenAPI
   , module Network.Alertmanager.OpenAPI.Logging
   , module Network.Alertmanager.OpenAPI.MimeTypes
   , module Network.Alertmanager.OpenAPI.Model
-  , module Network.Alertmanager.OpenAPI.ModelLens
   ) where
 
 import Network.Alertmanager.OpenAPI.API
@@ -28,4 +27,3 @@ import Network.Alertmanager.OpenAPI.Core
 import Network.Alertmanager.OpenAPI.Logging
 import Network.Alertmanager.OpenAPI.MimeTypes
 import Network.Alertmanager.OpenAPI.Model
-import Network.Alertmanager.OpenAPI.ModelLens
