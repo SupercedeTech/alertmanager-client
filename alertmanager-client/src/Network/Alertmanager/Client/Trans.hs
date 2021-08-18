@@ -9,7 +9,7 @@ module Network.Alertmanager.Client.Trans
 
 import Network.Alertmanager.Client.Class
 
-import Alertmanager.Core (AlertmanagerClientConfig)
+import Network.Alertmanager.OpenAPI.Core (AlertmanagerClientConfig)
 
 import Control.Monad.IO.Class (MonadIO(..))
 import Control.Monad.Trans.Class (MonadTrans(..))

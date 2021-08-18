@@ -16,9 +16,9 @@ module Network.Alertmanager.Client.GetAlerts
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
 
-import qualified Alertmanager.API.Alert as OA
-import qualified Alertmanager.Core as OA
-import qualified Alertmanager.Model as OA
+import qualified Network.Alertmanager.OpenAPI.API.Alert as OA
+import qualified Network.Alertmanager.OpenAPI.Core as OA
+import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 

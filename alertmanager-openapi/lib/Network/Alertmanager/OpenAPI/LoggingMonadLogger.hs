@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.LoggingMonadLogger
+Module : Network.Alertmanager.OpenAPI.LoggingMonadLogger
 monad-logger Logging functions
 -}
 
@@ -17,7 +17,7 @@ monad-logger Logging functions
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Alertmanager.LoggingMonadLogger where
+module Network.Alertmanager.OpenAPI.LoggingMonadLogger where
 
 import qualified Control.Exception.Safe as E
 import qualified Control.Monad.IO.Class as P
@@ -90,7 +90,7 @@ nullLogger _ _ _ _ = return ()
 _log :: (P.MonadIO m, LG.MonadLogger m) => Text -> LG.LogLevel -> Text -> m ()
 _log src level msg = do
   now <- P.liftIO (formatTimeLog <$> TI.getCurrentTime)
-  LG.logOtherNS ("Alertmanager." <> src) level ("[" <> now <> "] " <> msg)
+  LG.logOtherNS ("Network.Alertmanager.OpenAPI." <> src) level ("[" <> now <> "] " <> msg)
  where
   formatTimeLog =
     T.pack . TI.formatTime TI.defaultTimeLocale "%Y-%m-%dT%H:%M:%S%Z"

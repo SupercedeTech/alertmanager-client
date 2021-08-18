@@ -1,7 +1,9 @@
 PROPERTIES = \
+	baseModule=Network.Alertmanager.OpenAPI \
 	cabalPackage=alertmanager-openapi \
 	cabalVersion=0.0.1.0 \
 	configType=AlertmanagerClientConfig \
+	requestType=AlertmanagerRequest \
 	useKatip=false
 
 # This trick for comma-separated lists is take from:

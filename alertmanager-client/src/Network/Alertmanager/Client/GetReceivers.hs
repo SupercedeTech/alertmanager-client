@@ -10,9 +10,9 @@ module Network.Alertmanager.Client.GetReceivers
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
 
-import qualified Alertmanager.API.Receiver as OA
-import qualified Alertmanager.Core as OA
-import qualified Alertmanager.Model as OA
+import qualified Network.Alertmanager.OpenAPI.API.Receiver as OA
+import qualified Network.Alertmanager.OpenAPI.Core as OA
+import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 

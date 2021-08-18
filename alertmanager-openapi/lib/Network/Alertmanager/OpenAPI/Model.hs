@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.Model
+Module : Network.Alertmanager.OpenAPI.Model
 -}
 
 {-# LANGUAGE DeriveDataTypeable #-}
@@ -26,10 +26,10 @@ Module : Alertmanager.Model
 {-# LANGUAGE TypeFamilies #-}
 {-# OPTIONS_GHC -fno-warn-unused-matches -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.Model where
+module Network.Alertmanager.OpenAPI.Model where
 
-import Alertmanager.Core
-import Alertmanager.MimeTypes
+import Network.Alertmanager.OpenAPI.Core
+import Network.Alertmanager.OpenAPI.MimeTypes
 
 import Data.Aeson ((.:),(.:!),(.:?),(.=))
 

@@ -2,7 +2,7 @@ module Network.Alertmanager.Client.Class
   ( MonadAlertmanagerClient(..)
   ) where
 
-import Alertmanager.Core (AlertmanagerClientConfig)
+import Network.Alertmanager.OpenAPI.Core (AlertmanagerClientConfig)
 
 import Control.Monad.IO.Class (MonadIO(..))
 import Network.HTTP.Client (Manager)

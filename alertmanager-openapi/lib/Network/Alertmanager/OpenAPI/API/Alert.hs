@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.API.Alert
+Module : Network.Alertmanager.OpenAPI.API.Alert
 -}
 
 {-# LANGUAGE FlexibleContexts #-}
@@ -19,11 +19,11 @@ Module : Alertmanager.API.Alert
 {-# LANGUAGE OverloadedStrings #-}
 {-# OPTIONS_GHC -fno-warn-name-shadowing -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.API.Alert where
+module Network.Alertmanager.OpenAPI.API.Alert where
 
-import Alertmanager.Core
-import Alertmanager.MimeTypes
-import Alertmanager.Model as M
+import Network.Alertmanager.OpenAPI.Core
+import Network.Alertmanager.OpenAPI.MimeTypes
+import Network.Alertmanager.OpenAPI.Model as M
 
 import qualified Data.Aeson as A
 import qualified Data.ByteString as B

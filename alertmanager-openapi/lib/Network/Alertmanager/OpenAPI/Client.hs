@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.Client
+Module : Network.Alertmanager.OpenAPI.Client
 -}
 
 {-# LANGUAGE OverloadedStrings #-}
@@ -22,11 +22,11 @@ Module : Alertmanager.Client
 {-# LANGUAGE DeriveTraversable #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.Client where
+module Network.Alertmanager.OpenAPI.Client where
 
-import Alertmanager.Core
-import Alertmanager.Logging
-import Alertmanager.MimeTypes
+import Network.Alertmanager.OpenAPI.Core
+import Network.Alertmanager.OpenAPI.Logging
+import Network.Alertmanager.OpenAPI.MimeTypes
 
 import qualified Control.Exception.Safe as E
 import qualified Control.Monad.IO.Class as P

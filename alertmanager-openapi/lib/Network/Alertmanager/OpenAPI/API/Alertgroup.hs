@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.API.Receiver
+Module : Network.Alertmanager.OpenAPI.API.Alertgroup
 -}
 
 {-# LANGUAGE FlexibleContexts #-}
@@ -19,11 +19,11 @@ Module : Alertmanager.API.Receiver
 {-# LANGUAGE OverloadedStrings #-}
 {-# OPTIONS_GHC -fno-warn-name-shadowing -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.API.Receiver where
+module Network.Alertmanager.OpenAPI.API.Alertgroup where
 
-import Alertmanager.Core
-import Alertmanager.MimeTypes
-import Alertmanager.Model as M
+import Network.Alertmanager.OpenAPI.Core
+import Network.Alertmanager.OpenAPI.MimeTypes
+import Network.Alertmanager.OpenAPI.Model as M
 
 import qualified Data.Aeson as A
 import qualified Data.ByteString as B
@@ -55,20 +55,45 @@ import qualified Prelude as P
 -- * Operations
 
 
--- ** Receiver
+-- ** Alertgroup
 
--- *** getReceivers
+-- *** getAlertGroups
 
--- | @GET \/receivers@
+-- | @GET \/alerts\/groups@
 -- 
--- Get list of all receivers (name of notification integrations)
+-- Get a list of alert groups
 -- 
-getReceivers 
-  :: AlertmanagerRequest GetReceivers MimeNoContent [Receiver] MimeJSON
-getReceivers =
-  _mkRequest "GET" ["/receivers"]
+getAlertGroups 
+  :: AlertmanagerRequest GetAlertGroups MimeNoContent [AlertGroup] MimeJSON
+getAlertGroups =
+  _mkRequest "GET" ["/alerts/groups"]
 
-data GetReceivers  
+data GetAlertGroups  
+
+-- | /Optional Param/ "active" - Show active alerts
+instance HasOptionalParam GetAlertGroups Active where
+  applyOptionalParam req (Active xs) =
+    req `addQuery` toQuery ("active", Just xs)
+
+-- | /Optional Param/ "silenced" - Show silenced alerts
+instance HasOptionalParam GetAlertGroups Silenced where
+  applyOptionalParam req (Silenced xs) =
+    req `addQuery` toQuery ("silenced", Just xs)
+
+-- | /Optional Param/ "inhibited" - Show inhibited alerts
+instance HasOptionalParam GetAlertGroups Inhibited where
+  applyOptionalParam req (Inhibited xs) =
+    req `addQuery` toQuery ("inhibited", Just xs)
+
+-- | /Optional Param/ "filter" - A list of matchers to filter alerts by
+instance HasOptionalParam GetAlertGroups Filter where
+  applyOptionalParam req (Filter xs) =
+    req `addQuery` toQueryColl MultiParamArray ("filter", Just xs)
+
+-- | /Optional Param/ "receiver" - A regex matching receivers to filter alerts by
+instance HasOptionalParam GetAlertGroups Receiver2 where
+  applyOptionalParam req (Receiver2 xs) =
+    req `addQuery` toQuery ("receiver", Just xs)
 -- | @application/json@
-instance Produces GetReceivers MimeJSON
+instance Produces GetAlertGroups MimeJSON
 

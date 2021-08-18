@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.MimeTypes
+Module : Network.Alertmanager.OpenAPI.MimeTypes
 -}
 
 {-# LANGUAGE ConstraintKinds #-}
@@ -21,7 +21,7 @@ Module : Alertmanager.MimeTypes
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# OPTIONS_GHC -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.MimeTypes where
+module Network.Alertmanager.OpenAPI.MimeTypes where
 
 import qualified Control.Arrow as P (left)
 import qualified Data.Aeson as A

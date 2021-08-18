@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.LoggingKatip
+Module : Network.Alertmanager.OpenAPI.LoggingKatip
 Katip Logging functions
 -}
 
@@ -17,7 +17,7 @@ Katip Logging functions
 {-# LANGUAGE RankNTypes #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 
-module Alertmanager.LoggingKatip where
+module Network.Alertmanager.OpenAPI.LoggingKatip where
 
 import qualified Control.Exception.Safe as E
 import qualified Control.Monad.IO.Class as P
@@ -50,7 +50,7 @@ type LogLevel = LG.Severity
 
 -- | the default log environment
 initLogContext :: IO LogContext
-initLogContext = LG.initLogEnv "Alertmanager" "dev"
+initLogContext = LG.initLogEnv "Network.Alertmanager.OpenAPI" "dev"
 
 -- | Runs a Katip logging block with the Log environment
 runDefaultLogExecWithContext :: LogExecWithContext

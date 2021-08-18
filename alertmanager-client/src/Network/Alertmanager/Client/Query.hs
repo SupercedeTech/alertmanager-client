@@ -8,9 +8,9 @@ module Network.Alertmanager.Client.Query
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
 
-import qualified Alertmanager.Client as OA
-import qualified Alertmanager.Core as OA
-import qualified Alertmanager.MimeTypes as OA
+import qualified Network.Alertmanager.OpenAPI.Client as OA
+import qualified Network.Alertmanager.OpenAPI.Core as OA
+import qualified Network.Alertmanager.OpenAPI.MimeTypes as OA
 
 import Control.Exception (Exception(..), throwIO)
 import Control.Monad.IO.Class (MonadIO(..))

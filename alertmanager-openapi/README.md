@@ -59,7 +59,7 @@ These options allow some customization of the code generation process.
 | allowFromJsonNulls              | allow JSON Null during model decoding from JSON                                                                               | true     | true              |
 | allowNonUniqueOperationIds      | allow *different* API modules to contain the same operationId. Each API must be imported qualified                            | false    | false    |
 | allowToJsonNulls                | allow emitting JSON Null during model encoding to JSON                                                                        | false    | false                |
-| baseModule                      | Set the base module namespace                                                                                                 |          | Alertmanager                      |
+| baseModule                      | Set the base module namespace                                                                                                 |          | Network.Alertmanager.OpenAPI                      |
 | cabalPackage                    | Set the cabal package name, which consists of one or more alphanumeric words separated by hyphens                             |          | alertmanager-openapi                    |
 | cabalVersion                    | Set the cabal version number, consisting of a sequence of one or more integers separated by dots                              | 0.1.0.0  | 0.0.1.0                    |
 | customTestInstanceModule        | test module used to provide typeclass instances for types not known by the generator                                          |          |         |
@@ -111,13 +111,13 @@ This library is intended to be imported qualified.
 
 | MODULE              | NOTES                                               |
 | ------------------- | --------------------------------------------------- |
-| Alertmanager.Client    | use the "dispatch" functions to send requests       |
-| Alertmanager.Core      | core funcions, config and request types             |
-| Alertmanager.API       | construct api requests                              |
-| Alertmanager.Model     | describes api models                                |
-| Alertmanager.MimeTypes | encoding/decoding MIME types (content-types/accept) |
-| Alertmanager.ModelLens | lenses for model fields                             |
-| Alertmanager.Logging   | logging functions and utils                         |
+| Network.Alertmanager.OpenAPI.Client    | use the "dispatch" functions to send requests       |
+| Network.Alertmanager.OpenAPI.Core      | core funcions, config and request types             |
+| Network.Alertmanager.OpenAPI.API       | construct api requests                              |
+| Network.Alertmanager.OpenAPI.Model     | describes api models                                |
+| Network.Alertmanager.OpenAPI.MimeTypes | encoding/decoding MIME types (content-types/accept) |
+| Network.Alertmanager.OpenAPI.ModelLens | lenses for model fields                             |
+| Network.Alertmanager.OpenAPI.Logging   | logging functions and utils                         |
 
 
 ### MimeTypes

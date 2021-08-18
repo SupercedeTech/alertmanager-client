@@ -15,7 +15,6 @@ author:         Supercede
 maintainer:     isaac@supercede.com
 copyright:      2021 - Supercede
 license:        BSD-3-Clause
-license-file:   LICENSE
 build-type:     Simple
 
 extra-source-files:
@@ -58,28 +57,28 @@ library
   other-modules:
       Paths_alertmanager_openapi
   exposed-modules:
-      Alertmanager
-      Alertmanager.API
-      Alertmanager.API.Alert
-      Alertmanager.API.Alertgroup
-      Alertmanager.API.General
-      Alertmanager.API.Receiver
-      Alertmanager.API.Silence
-      Alertmanager.Client
-      Alertmanager.Core
-      Alertmanager.Logging
-      Alertmanager.MimeTypes
-      Alertmanager.Model
-      Alertmanager.ModelLens
+      Network.Alertmanager.OpenAPI
+      Network.Alertmanager.OpenAPI.API
+      Network.Alertmanager.OpenAPI.API.Alert
+      Network.Alertmanager.OpenAPI.API.Alertgroup
+      Network.Alertmanager.OpenAPI.API.General
+      Network.Alertmanager.OpenAPI.API.Receiver
+      Network.Alertmanager.OpenAPI.API.Silence
+      Network.Alertmanager.OpenAPI.Client
+      Network.Alertmanager.OpenAPI.Core
+      Network.Alertmanager.OpenAPI.Logging
+      Network.Alertmanager.OpenAPI.MimeTypes
+      Network.Alertmanager.OpenAPI.Model
+      Network.Alertmanager.OpenAPI.ModelLens
   default-language: Haskell2010
 
   if flag(UseKatip)
       build-depends: katip >=0.8 && < 1.0
-      other-modules: Alertmanager.LoggingKatip
+      other-modules: Network.Alertmanager.OpenAPI.LoggingKatip
       cpp-options: -DUSE_KATIP
   else
       build-depends: monad-logger >=0.3 && <0.4
-      other-modules: Alertmanager.LoggingMonadLogger
+      other-modules: Network.Alertmanager.OpenAPI.LoggingMonadLogger
       cpp-options: -DUSE_MONAD_LOGGER
 
 test-suite tests

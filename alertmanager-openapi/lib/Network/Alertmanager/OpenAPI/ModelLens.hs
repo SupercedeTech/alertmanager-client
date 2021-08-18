@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.Lens
+Module : Network.Alertmanager.OpenAPI.Lens
 -}
 
 {-# LANGUAGE KindSignatures #-}
@@ -18,7 +18,7 @@ Module : Alertmanager.Lens
 {-# LANGUAGE RecordWildCards #-}
 {-# OPTIONS_GHC -fno-warn-name-shadowing -fno-warn-unused-matches -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.ModelLens where
+module Network.Alertmanager.OpenAPI.ModelLens where
 
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy as BL
@@ -32,8 +32,8 @@ import Data.Text (Text)
 import Prelude (($), (.),(<$>),(<*>),(=<<),Maybe(..),Bool(..),Char,Double,FilePath,Float,Int,Integer,String,fmap,undefined,mempty,maybe,pure,Monad,Applicative,Functor)
 import qualified Prelude as P
 
-import Alertmanager.Model
-import Alertmanager.Core
+import Network.Alertmanager.OpenAPI.Model
+import Network.Alertmanager.OpenAPI.Core
 
 
 -- * Alert

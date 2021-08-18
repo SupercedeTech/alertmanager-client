@@ -2,8 +2,8 @@
 
 module Instances where
 
-import Alertmanager.Model
-import Alertmanager.Core
+import Network.Alertmanager.OpenAPI.Model
+import Network.Alertmanager.OpenAPI.Core
 
 import qualified Data.Aeson as A
 import qualified Data.ByteString.Lazy as BL

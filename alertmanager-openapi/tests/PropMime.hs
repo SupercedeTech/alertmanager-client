@@ -15,7 +15,7 @@ import Test.QuickCheck
 import Test.QuickCheck.Property
 import Test.Hspec.QuickCheck (prop)
 
-import Alertmanager.MimeTypes
+import Network.Alertmanager.OpenAPI.MimeTypes
 
 import ApproxEq
 

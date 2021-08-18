@@ -9,7 +9,7 @@
 -}
 
 {-|
-Module : Alertmanager.Core
+Module : Network.Alertmanager.OpenAPI.Core
 -}
 
 {-# LANGUAGE DeriveDataTypeable #-}
@@ -25,10 +25,10 @@ Module : Alertmanager.Core
 {-# LANGUAGE TypeFamilies #-}
 {-# OPTIONS_GHC -fno-warn-name-shadowing -fno-warn-unused-binds -fno-warn-unused-imports #-}
 
-module Alertmanager.Core where
+module Network.Alertmanager.OpenAPI.Core where
 
-import Alertmanager.MimeTypes
-import Alertmanager.Logging
+import Network.Alertmanager.OpenAPI.MimeTypes
+import Network.Alertmanager.OpenAPI.Logging
 
 import qualified Control.Arrow as P (left)
 import qualified Control.DeepSeq as NF

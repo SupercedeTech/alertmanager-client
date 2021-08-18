@@ -12,8 +12,8 @@ import Test.Hspec.QuickCheck
 import PropMime
 import Instances ()
 
-import Alertmanager.Model
-import Alertmanager.MimeTypes
+import Network.Alertmanager.OpenAPI.Model
+import Network.Alertmanager.OpenAPI.MimeTypes
 
 main :: IO ()
 main =
