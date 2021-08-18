@@ -9,10 +9,9 @@ module Network.Alertmanager.Client.GetStatus
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.General as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 
@@ -23,7 +22,7 @@ getStatus
 getStatus = GetStatus
 
 instance Req GetStatus where
-  type Resp GetStatus = OA.AlertmanagerStatus
+  type Resp GetStatus = AlertmanagerStatus
 
   toAlertmanagerRequest getStatus =
     IgnoringMimeInfo OA.getStatus

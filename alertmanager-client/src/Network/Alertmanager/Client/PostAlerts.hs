@@ -11,19 +11,18 @@ module Network.Alertmanager.Client.PostAlerts
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.Alert as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 
 data PostAlerts = PostAlerts
-  { _alerts :: OA.Alerts
+  { _alerts :: Alerts
   }
 
 postAlerts
-  :: OA.Alerts
+  :: Alerts
   -> PostAlerts
 postAlerts = PostAlerts
 

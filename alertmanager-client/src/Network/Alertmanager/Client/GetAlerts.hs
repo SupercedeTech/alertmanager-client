@@ -15,10 +15,10 @@ module Network.Alertmanager.Client.GetAlerts
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.Alert as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
+import qualified Network.Alertmanager.OpenAPI.Core as OA ((-&-))
 
 import Control.Lens.TH (makeLenses)
 
@@ -27,8 +27,8 @@ data GetAlerts = GetAlerts
   , _showSilenced :: Bool
   , _showInhibited :: Bool
   , _showUnprocessed :: Bool
-  , _alertFilters :: OA.Filter
-  , _receiverFilter :: Maybe OA.Receiver2
+  , _alertFilters :: Filter
+  , _receiverFilter :: Maybe Receiver2
   }
 
 getAlerts :: GetAlerts
@@ -37,18 +37,18 @@ getAlerts = GetAlerts
   , _showSilenced = True
   , _showInhibited = True
   , _showUnprocessed = True
-  , _alertFilters = OA.Filter []
+  , _alertFilters = Filter []
   , _receiverFilter = Nothing
   }
 
 instance Req GetAlerts where
-  type Resp GetAlerts = [OA.GettableAlert]
+  type Resp GetAlerts = [GettableAlert]
 
   toAlertmanagerRequest GetAlerts{..} =
     IgnoringMimeInfo $ OA.getAlerts
-      OA.-&- OA.Active _showActive
-      OA.-&- OA.Silenced _showSilenced
-      OA.-&- OA.Inhibited _showInhibited
+      OA.-&- Active _showActive
+      OA.-&- Silenced _showSilenced
+      OA.-&- Inhibited _showInhibited
       OA.-&- _alertFilters
       ?&? _receiverFilter
 

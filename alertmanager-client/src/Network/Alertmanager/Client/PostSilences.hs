@@ -11,25 +11,24 @@ module Network.Alertmanager.Client.PostSilences
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.Silence as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 import Data.Text (Text)
 
 data PostSilences = PostSilences
-  { _silence :: OA.PostableSilence
+  { _silence :: PostableSilence
   }
 
 postSilences
-  :: OA.PostableSilence
+  :: PostableSilence
   -> PostSilences
 postSilences = PostSilences
 
 instance Req PostSilences where
-  type Resp PostSilences = OA.InlineResponse200
+  type Resp PostSilences = InlineResponse200
 
   toAlertmanagerRequest PostSilences{..} =
     IgnoringMimeInfo $ OA.postSilences _silence

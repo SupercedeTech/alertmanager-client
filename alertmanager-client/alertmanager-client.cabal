@@ -15,8 +15,10 @@ extra-source-files:  README.md
 library
   hs-source-dirs:      src
   exposed-modules:     Network.Alertmanager.Client.Class
+                     , Network.Alertmanager.Client.Core
                      , Network.Alertmanager.Client.Query
                      , Network.Alertmanager.Client.Trans
+                     , Network.Alertmanager.Client.Types
 
                      , Network.Alertmanager.Client.DeleteSilence
                      , Network.Alertmanager.Client.GetSilence
@@ -31,7 +33,10 @@ library
                      , Network.Alertmanager.Client.GetReceivers
 
                      , Network.Alertmanager.Client.GetStatus
+
   other-modules:       Network.Alertmanager.Client.Query.Internal
+                     , Network.Alertmanager.Client.Types.Internal
+
   build-depends:       base >= 4.7 && < 5
                      , alertmanager-openapi >= 0.0.1 && < 0.0.2
                      , http-client >= 0.5 && < 0.7

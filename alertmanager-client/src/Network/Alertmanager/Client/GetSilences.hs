@@ -11,25 +11,25 @@ module Network.Alertmanager.Client.GetSilences
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.Silence as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
+import qualified Network.Alertmanager.OpenAPI.Core as OA ((-&-))
 
 import Control.Lens.TH (makeLenses)
 
 data GetSilences = GetSilences
-  { _filters :: OA.Filter
+  { _filters :: Filter
   }
 
 getSilences
   :: GetSilences
 getSilences = GetSilences
-  { _filters = OA.Filter []
+  { _filters = Filter []
   }
 
 instance Req GetSilences where
-  type Resp GetSilences = [OA.GettableSilence]
+  type Resp GetSilences = [GettableSilence]
 
   toAlertmanagerRequest GetSilences{..} =
     IgnoringMimeInfo $ OA.getSilences

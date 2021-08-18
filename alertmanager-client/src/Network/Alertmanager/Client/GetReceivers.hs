@@ -9,10 +9,9 @@ module Network.Alertmanager.Client.GetReceivers
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.Receiver as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 
@@ -23,7 +22,7 @@ getReceivers
 getReceivers = GetReceivers
 
 instance Req GetReceivers where
-  type Resp GetReceivers = [OA.Receiver]
+  type Resp GetReceivers = [Receiver]
 
   toAlertmanagerRequest getReceivers =
     IgnoringMimeInfo OA.getReceivers

@@ -11,19 +11,18 @@ module Network.Alertmanager.Client.DeleteSilence
 
 import Network.Alertmanager.Client.Class
 import Network.Alertmanager.Client.Query.Internal
+import Network.Alertmanager.Client.Types
 
 import qualified Network.Alertmanager.OpenAPI.API.Silence as OA
-import qualified Network.Alertmanager.OpenAPI.Core as OA
-import qualified Network.Alertmanager.OpenAPI.Model as OA
 
 import Control.Lens.TH (makeLenses)
 
 data DeleteSilence = DeleteSilence
-  { _silenceId :: OA.SilenceId
+  { _silenceId :: SilenceId
   }
 
 deleteSilence
-  :: OA.SilenceId
+  :: SilenceId
   -> DeleteSilence
 deleteSilence = DeleteSilence
 
