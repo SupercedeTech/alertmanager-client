@@ -11,11 +11,12 @@
 -- better usage, but this will do for now.
 
 module Network.Alertmanager.Client.Types
+  (
   -- * Newtypes
   --
   -- TODO: Eliminate unnecessary types & improve names. Some of these newtypes
   -- have no reason to be exposed to the user, so we should be able to omit them.
-  ( OA.DateTime(..) -- NB: This comes from Core, not Model
+    OA.DateTime(..) -- NB: This comes from Core, not Model
   , OA.Active(..)
   , OA.Alerts(..)
   , OA.Filter(..)
