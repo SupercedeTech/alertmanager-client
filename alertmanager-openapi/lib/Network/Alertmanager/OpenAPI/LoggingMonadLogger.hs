@@ -29,15 +29,6 @@ import Data.Text (Text)
 
 import qualified Control.Monad.Logger as LG
 
--- * Type Aliases (for compatibility)
-
--- | Runs a monad-logger  block with the filter predicate
-type LogExecWithContext = forall m. P.MonadIO m =>
-                                    LogContext -> LogExec m
-
--- | A monad-logger block
-type LogExec m = forall a. LG.LoggingT m a -> m a
-
 -- | A monad-logger filter predicate
 type LogContext = LG.LogSource -> LG.LogLevel -> Bool
 
@@ -51,13 +42,13 @@ initLogContext :: IO LogContext
 initLogContext = pure infoLevelFilter
 
 -- | Runs a monad-logger block with the filter predicate
-runDefaultLogExecWithContext :: LogExecWithContext
+runDefaultLogExecWithContext :: P.MonadIO m => LogContext -> LG.LoggingT m a -> m a
 runDefaultLogExecWithContext = runNullLogExec
 
 -- * stdout logger
 
 -- | Runs a monad-logger block targeting stdout, with the filter predicate
-stdoutLoggingExec :: LogExecWithContext
+stdoutLoggingExec :: P.MonadIO m => LogContext -> LG.LoggingT m a -> m a
 stdoutLoggingExec cxt = LG.runStdoutLoggingT . LG.filterLogger cxt
 
 -- | @pure@
@@ -67,7 +58,7 @@ stdoutLoggingContext = pure
 -- * stderr logger
 
 -- | Runs a monad-logger block targeting stderr, with the filter predicate
-stderrLoggingExec :: LogExecWithContext
+stderrLoggingExec :: P.MonadIO m => LogContext -> LG.LoggingT m a -> m a
 stderrLoggingExec cxt = LG.runStderrLoggingT . LG.filterLogger cxt
 
 -- | @pure@
@@ -77,7 +68,7 @@ stderrLoggingContext = pure
 -- * Null logger
 
 -- | Disables monad-logger logging
-runNullLogExec :: LogExecWithContext
+runNullLogExec :: P.MonadIO m => LogContext -> LG.LoggingT m a -> m a
 runNullLogExec = const (`LG.runLoggingT` nullLogger)
 
 -- | monad-logger which does nothing
