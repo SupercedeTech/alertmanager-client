@@ -31,15 +31,6 @@ import GHC.Exts (IsString(..))
 
 import qualified Katip as LG
 
--- * Type Aliases (for compatibility)
-
--- | Runs a Katip logging block with the Log environment
-type LogExecWithContext = forall m. P.MonadIO m =>
-                                    LogContext -> LogExec m
-
--- | A Katip logging block
-type LogExec m = forall a. LG.KatipT m a -> m a
-
 -- | A Katip Log environment
 type LogContext = LG.LogEnv
 
@@ -53,13 +44,13 @@ initLogContext :: IO LogContext
 initLogContext = LG.initLogEnv "Network.Alertmanager.OpenAPI" "dev"
 
 -- | Runs a Katip logging block with the Log environment
-runDefaultLogExecWithContext :: LogExecWithContext
+runDefaultLogExecWithContext :: P.MonadIO m => LogContext -> LG.KatipT m a -> m a
 runDefaultLogExecWithContext = LG.runKatipT
 
 -- * stdout logger
 
 -- | Runs a Katip logging block with the Log environment
-stdoutLoggingExec :: LogExecWithContext
+stdoutLoggingExec :: P.MonadIO m => LogContext -> LG.KatipT m a -> m a
 stdoutLoggingExec = runDefaultLogExecWithContext
 
 -- | A Katip Log environment which targets stdout
@@ -71,7 +62,7 @@ stdoutLoggingContext cxt = do
 -- * stderr logger
 
 -- | Runs a Katip logging block with the Log environment
-stderrLoggingExec :: LogExecWithContext
+stderrLoggingExec :: P.MonadIO m => LogContext -> LG.KatipT m a -> m a
 stderrLoggingExec = runDefaultLogExecWithContext
 
 -- | A Katip Log environment which targets stderr
@@ -83,7 +74,7 @@ stderrLoggingContext cxt = do
 -- * Null logger
 
 -- | Disables Katip logging
-runNullLogExec :: LogExecWithContext
+runNullLogExec :: P.MonadIO m => LogContext -> LG.KatipT m a -> m a
 runNullLogExec le (LG.KatipT f) = P.runReaderT f (L.set LG.logEnvScribes mempty le)
 
 -- * Log Msg
