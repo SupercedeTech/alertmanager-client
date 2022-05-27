@@ -19,7 +19,7 @@ space := $(null) #
 comma := ,
 
 generate:
-	openapi-generator generate \
+	openapi-generator-cli generate \
 		-i alertmanager/api/v2/openapi.yaml \
 		--additional-properties $(subst $(space),$(comma),$(strip $(PROPERTIES))) \
 		--ignore-file-override alertmanager-openapi/.openapi-generator-ignore \

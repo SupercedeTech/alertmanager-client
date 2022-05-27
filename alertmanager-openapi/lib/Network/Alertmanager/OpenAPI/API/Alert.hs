@@ -63,7 +63,7 @@ import qualified Prelude as P
 -- 
 -- Get a list of alerts
 -- 
-getAlerts 
+getAlerts
   :: AlertmanagerRequest GetAlerts MimeNoContent [GettableAlert] MimeJSON
 getAlerts =
   _mkRequest "GET" ["/alerts"]
@@ -109,7 +109,7 @@ instance Produces GetAlerts MimeJSON
 -- 
 -- Create new Alerts
 -- 
-postAlerts 
+postAlerts
   :: (Consumes PostAlerts MimeJSON, MimeRender MimeJSON Alerts)
   => Alerts -- ^ "alerts" -  The alerts to create
   -> AlertmanagerRequest PostAlerts MimeJSON NoContent MimeNoContent

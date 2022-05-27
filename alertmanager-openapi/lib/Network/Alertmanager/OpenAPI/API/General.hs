@@ -63,7 +63,7 @@ import qualified Prelude as P
 -- 
 -- Get current status of an Alertmanager instance and its cluster
 -- 
-getStatus 
+getStatus
   :: AlertmanagerRequest GetStatus MimeNoContent AlertmanagerStatus MimeJSON
 getStatus =
   _mkRequest "GET" ["/status"]

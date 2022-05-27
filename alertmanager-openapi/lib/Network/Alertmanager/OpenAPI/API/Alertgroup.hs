@@ -63,7 +63,7 @@ import qualified Prelude as P
 -- 
 -- Get a list of alert groups
 -- 
-getAlertGroups 
+getAlertGroups
   :: AlertmanagerRequest GetAlertGroups MimeNoContent [AlertGroup] MimeJSON
 getAlertGroups =
   _mkRequest "GET" ["/alerts/groups"]
