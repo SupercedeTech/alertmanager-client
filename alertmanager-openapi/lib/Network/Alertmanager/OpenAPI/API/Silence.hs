@@ -63,7 +63,7 @@ import qualified Prelude as P
 -- 
 -- Delete a silence by its ID
 -- 
-deleteSilence 
+deleteSilence
   :: SilenceId -- ^ "silenceId" -  ID of the silence to get
   -> AlertmanagerRequest DeleteSilence MimeNoContent NoContent MimeNoContent
 deleteSilence (SilenceId silenceId) =
@@ -79,7 +79,7 @@ instance Produces DeleteSilence MimeNoContent
 -- 
 -- Get a silence by its ID
 -- 
-getSilence 
+getSilence
   :: SilenceId -- ^ "silenceId" -  ID of the silence to get
   -> AlertmanagerRequest GetSilence MimeNoContent GettableSilence MimeJSON
 getSilence (SilenceId silenceId) =
@@ -96,7 +96,7 @@ instance Produces GetSilence MimeJSON
 -- 
 -- Get a list of silences
 -- 
-getSilences 
+getSilences
   :: AlertmanagerRequest GetSilences MimeNoContent [GettableSilence] MimeJSON
 getSilences =
   _mkRequest "GET" ["/silences"]
@@ -117,7 +117,7 @@ instance Produces GetSilences MimeJSON
 -- 
 -- Post a new silence or update an existing one
 -- 
-postSilences 
+postSilences
   :: (Consumes PostSilences MimeJSON, MimeRender MimeJSON PostableSilence)
   => PostableSilence -- ^ "silence" -  The silence to create
   -> AlertmanagerRequest PostSilences MimeJSON InlineResponse200 MimeJSON

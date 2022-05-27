@@ -63,7 +63,7 @@ import qualified Prelude as P
 -- 
 -- Get list of all receivers (name of notification integrations)
 -- 
-getReceivers 
+getReceivers
   :: AlertmanagerRequest GetReceivers MimeNoContent [Receiver] MimeJSON
 getReceivers =
   _mkRequest "GET" ["/receivers"]
